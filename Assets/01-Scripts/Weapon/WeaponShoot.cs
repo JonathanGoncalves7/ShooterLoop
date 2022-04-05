@@ -52,6 +52,7 @@ public class WeaponShoot : MonoBehaviour
         ProjectileBehavior projectileBehavior = newProjectile.GetComponent<ProjectileBehavior>();
         projectileBehavior.Speed = ProjectileData.Speed;
         projectileBehavior.Damage = ProjectileData.Damage.GetRandom();
+        projectileBehavior.RadiusDamage = ProjectileData.RadiusDamage;
 
         _lastShoot = Time.time + FireRate;
         _currentProjectilesCount--;

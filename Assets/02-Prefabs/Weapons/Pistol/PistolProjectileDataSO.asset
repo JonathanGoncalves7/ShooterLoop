@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f2d11d333c0ac940a31887a32c69bc9, type: 3}
-  m_Name: ProjectileDataSO
+  m_Name: PistolProjectileDataSO
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8376483509723616515, guid: 37baf0bf0356b0349965f1e76a3c6655, type: 3}
-  Speed: 25
+  Speed: 20
   Damage:
-    Min: 1
-    Max: 2
+    Min: 2
+    Max: 4
   LifeTime: 0
+  RadiusDamage: 0

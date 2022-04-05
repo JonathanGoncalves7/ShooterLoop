@@ -7,4 +7,5 @@ public class ProjectileDataSO : ScriptableObject
     public float Speed;
     public MinAndMax Damage;
     public float LifeTime;
+    public float RadiusDamage;
 }
