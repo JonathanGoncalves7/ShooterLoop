@@ -12,9 +12,10 @@ public class ProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy")){
-            Health health = other.gameObject.GetComponent<Health>();
-            health.Damage(Damage);
+        if (other.CompareTag("Enemy"))
+        {
+            IDamaged damaged = other.gameObject.GetComponent<IDamaged>();
+            damaged.Damage(Damage);
 
             Debug.Log("Damage enemy: " + Damage);
         }

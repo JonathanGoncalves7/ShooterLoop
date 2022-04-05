@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 3598845334653112599}
   - component: {fileID: 256717810872436227}
   - component: {fileID: 3859712508372781278}
+  - component: {fileID: 88337957316524113}
   - component: {fileID: -8504325317667945841}
+  - component: {fileID: 1989160192543010079}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -150,6 +152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistanceTarget: 2.5
+--- !u!114 &88337957316524113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6876312563197742076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7564c5af83a776a4787fafaa301c5c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-8504325317667945841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +177,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
+--- !u!114 &1989160192543010079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6876312563197742076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c24a39a5638242855775ec1297539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    Min: 5
+    Max: 10
+  AttackRange: 3
+  AttackRate: 0.5

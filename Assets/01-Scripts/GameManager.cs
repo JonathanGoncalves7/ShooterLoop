@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
                 HandleNextWave();
                 break;
             case GameState.Lose:
+                HandleLose();
                 break;
         }
     }
@@ -76,11 +78,14 @@ public class GameManager : MonoBehaviour
 
     private void HandleNextWave()
     {
-        Debug.Log("HandleNextWave");
-
         _currentWave++;
 
         UpdateGameState(GameState.PrepareWave);
+    }
+
+    private void HandleLose()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator CRRespawn()

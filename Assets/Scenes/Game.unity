@@ -768,6 +768,8 @@ GameObject:
   - component: {fileID: 1391554588}
   - component: {fileID: 1391554587}
   - component: {fileID: 1391554594}
+  - component: {fileID: 1391554595}
+  - component: {fileID: 1391554596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -910,6 +912,32 @@ MonoBehaviour:
   WeaponList:
   - {fileID: 1761511718}
   - {fileID: 2024182853}
+--- !u!114 &1391554595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391554586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b832a055601abc4db293eff8256634e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  CurrentHealth: 0
+--- !u!114 &1391554596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391554586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6d068b87fb7f408ca7c42e4b23a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1398093658
 GameObject:
   m_ObjectHideFlags: 0

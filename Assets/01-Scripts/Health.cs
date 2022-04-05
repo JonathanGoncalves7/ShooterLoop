@@ -5,18 +5,10 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int MaxHealth;
-    int _currentHealth;
+    public int CurrentHealth;
 
     private void Start()
     {
-        _currentHealth = MaxHealth;
-    }
-
-    public void Damage(int damage)
-    {
-        _currentHealth -= damage;
-
-        if (_currentHealth <= 0)
-            Destroy(gameObject);
+        CurrentHealth = MaxHealth;
     }
 }
