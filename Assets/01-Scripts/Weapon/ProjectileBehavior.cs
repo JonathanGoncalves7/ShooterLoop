@@ -44,15 +44,11 @@ public class ProjectileBehavior : MonoBehaviour
 
         for (int i = 0; i < hit.Length; i++)
         {
-            if (!hit[i].transform.CompareTag("Enemy")) continue;
-
-            IDamaged damaged = hit[i].transform.gameObject.GetComponent<IDamaged>();
-            damaged.Damage(Damage);         
+            if (hit[i].transform.CompareTag("Enemy"))
+            {
+                IDamaged damaged = hit[i].transform.gameObject.GetComponent<IDamaged>();
+                damaged.Damage(Damage);
+            }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, RadiusDamage);
     }
 }
