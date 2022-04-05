@@ -8,30 +8,44 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField] ProjectileDataSO ProjectileData;
     [SerializeField] Transform ShootPosition;
     [SerializeField] float FireRate;
+    [SerializeField] int MaxProjectiles;
+    [SerializeField] float TimeToRechargeProjectile;
 
     [Header("Recoil")]
     [SerializeField] float RecoilShoot;
     [SerializeField] float RecoilSpeed;
 
-    float lastShoot;
-    Vector3 iniPos;
+    public bool IsActiveWeapon;
+
+    float _lastShoot;
+    Vector3 _iniPos;
+    [SerializeField] int _currentProjectilesCount;
+    float _restTimeToRechargeProjectile;
+    MeshRenderer _meshRenderer;
 
     private void Start()
     {
-        lastShoot = Time.time + FireRate;
-        iniPos = transform.localPosition;
+        _meshRenderer = GetComponent<MeshRenderer>();
+
+        _lastShoot = Time.time + FireRate;
+        _iniPos = transform.localPosition;
+
+        _currentProjectilesCount = MaxProjectiles;
+        _restTimeToRechargeProjectile = Time.time + TimeToRechargeProjectile;
     }
 
     private void Update()
     {
-        Shoot();
+        _meshRenderer.enabled = IsActiveWeapon;
 
+        Shoot();
+        RechargeProjectiles();
         ReturnRecoil();
     }
 
     private void Shoot()
     {
-        if (Input.GetAxis("Fire1") <= 0 || Time.time < lastShoot) return;
+        if (Input.GetAxis("Fire1") <= 0 || Time.time < _lastShoot || _currentProjectilesCount <= 0 || !IsActiveWeapon) return;
 
         GameObject newProjectile = Instantiate(ProjectileData.Prefab, ShootPosition.position, ShootPosition.rotation);
 
@@ -39,20 +53,31 @@ public class WeaponShoot : MonoBehaviour
         projectileBehavior.Speed = ProjectileData.Speed;
         projectileBehavior.Damage = ProjectileData.Damage.GetRandom();
 
-        lastShoot = Time.time + FireRate;
+        _lastShoot = Time.time + FireRate;
+        _currentProjectilesCount--;
 
         Recoil();
     }
 
+    private void RechargeProjectiles()
+    {
+        if (_currentProjectilesCount >= MaxProjectiles || Time.time < _restTimeToRechargeProjectile) return;
+
+        _currentProjectilesCount++;
+
+
+        _restTimeToRechargeProjectile = Time.time + TimeToRechargeProjectile;
+    }
+
     private void Recoil()
     {
-        float recoil = iniPos.z - RecoilShoot;
+        float recoil = _iniPos.z - RecoilShoot;
 
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, recoil);
     }
 
     private void ReturnRecoil()
     {
-        transform.localPosition = Vector3.Lerp(transform.localPosition, iniPos, RecoilSpeed);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, _iniPos, RecoilSpeed);
     }
 }

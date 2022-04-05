@@ -22,13 +22,18 @@ public class PlayerWeapon : MonoBehaviour
         {
             ActiveWeaponIndex(1);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ActiveWeaponIndex(2);
+        }
     }
 
     private void ActiveWeaponIndex(int index)
     {
         for (int i = 0; i < WeaponList.Count; i++)
         {
-            WeaponList[i].SetActive(i == index);
+            WeaponList[i].GetComponent<WeaponShoot>().IsActiveWeapon = (i == index);
         }
     }
 }
