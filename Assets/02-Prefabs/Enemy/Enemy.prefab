@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistanceTarget: 2.5
+  Speed:
+    Min: 3
+    Max: 5
 --- !u!114 &88337957316524113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,4 +197,4 @@ MonoBehaviour:
     Min: 5
     Max: 10
   AttackRange: 3
-  AttackRate: 0.5
+  AttackRate: 1

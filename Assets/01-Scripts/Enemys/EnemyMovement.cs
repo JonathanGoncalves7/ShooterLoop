@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float MinDistanceTarget = 5f;
+    [SerializeField] MinAndMax Speed;
 
     NavMeshAgent _navMeshAgent;
     GameObject _player;
@@ -13,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.speed = Speed.GetRandom();
     }
 
     private void Update()
