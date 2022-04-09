@@ -1,17 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    [SerializeField] List<GameObject> WeaponList;
+    [SerializeField] MagicDataSO SimplesMagic;
+    [SerializeField] MagicDataSO GreatMagic;
+    [SerializeField] MagicDataSO ExplosionMagic;
+
+    [SerializeField] Transform ShootPosition;
+
+    MagicDataSO _currentWeaponActive;
+    bool _canShoot;
 
     private void Start()
     {
+        SimplesMagic.Ini();
+        GreatMagic.Ini();
+        ExplosionMagic.Ini();
+
         ActiveWeaponIndex(0);
     }
 
     private void Update()
+    {
+        SetActiveWeapon();
+
+        StartShoot();
+    }
+
+    private void StartShoot()
+    {
+        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot()) return;
+
+        _currentWeaponActive.Shoot(ShootPosition);
+    }
+
+    private void SetActiveWeapon()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -31,9 +54,17 @@ public class PlayerWeapon : MonoBehaviour
 
     private void ActiveWeaponIndex(int index)
     {
-        for (int i = 0; i < WeaponList.Count; i++)
+        switch (index)
         {
-            WeaponList[i].GetComponent<WeaponShoot>().IsActiveWeapon = (i == index);
+            case 0:
+                _currentWeaponActive = SimplesMagic;
+                break;
+            case 1:
+                _currentWeaponActive = GreatMagic;
+                break;
+            case 2:
+                _currentWeaponActive = ExplosionMagic;
+                break;
         }
     }
 }

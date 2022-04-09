@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float Speed = 5f;
 
-    Vector3 _direction;
+    public Vector3 Direction;
     Rigidbody _rigidbody;
 
     private void Start()
@@ -14,11 +15,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        SetDirection();
+    }
+
+    private void SetDirection()
+    {
+        Direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        Direction.Normalize();
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector3(_direction.x * Speed, _rigidbody.velocity.y, _direction.z * Speed);
+        _rigidbody.velocity = Direction * Speed;
     }
 }
