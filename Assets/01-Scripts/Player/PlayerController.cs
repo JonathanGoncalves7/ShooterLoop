@@ -4,11 +4,6 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerStatusSO PlayerStatus;
 
-    private void Start()
-    {
-        PlayerStatus.Ini();
-    }
-
     private void Update()
     {
         PlayerStatus.RegenMana();

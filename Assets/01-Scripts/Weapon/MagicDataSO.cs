@@ -10,12 +10,7 @@ public class MagicDataSO : ScriptableObject
 
     float _lastShoot;
 
-    private void Start()
-    {
-        Ini();
-    }
-
-    public void Ini()
+    private void OnEnable()
     {
         _lastShoot = Time.time + Cooldown;
     }

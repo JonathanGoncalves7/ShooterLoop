@@ -16,10 +16,6 @@ public class PlayerWeapon : MonoBehaviour
     {
         _playerController = GetComponent<PlayerController>();
 
-        SimplesMagic.Ini();
-        GreatMagic.Ini();
-        ExplosionMagic.Ini();
-
         ActiveWeaponIndex(0);
     }
 

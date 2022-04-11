@@ -16,7 +16,7 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
 
     float restSecondsToRegen;
 
-    public void Ini()
+    private void OnEnable()
     {
         CurrentHealth = MaxHealth;
         CurrentMana = MaxMana;
