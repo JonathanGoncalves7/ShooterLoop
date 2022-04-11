@@ -104,12 +104,6 @@ public class GameManager : MonoBehaviour
 
         GameObject newEnemy = Instantiate(Enemys[0], _respawnPoints[respawnPointIndex].transform.position, Quaternion.identity);
 
-        EnemyMovement enemyMovement = newEnemy.GetComponent<EnemyMovement>();
-        enemyMovement.SetPlayer(_player);
-
-        EnemyAttack enemyAttack = newEnemy.GetComponent<EnemyAttack>();
-        enemyAttack.SetPlayer(_player);
-
         newEnemy.transform.SetParent(EnemysGroup.transform);
     }
 

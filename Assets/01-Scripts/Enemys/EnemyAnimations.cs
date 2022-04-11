@@ -1,22 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyAnimations : MonoBehaviour
 {
     Animator _animator;
-    NavMeshAgent _navMeshAgent;
 
-    private void Start()
+    private void Awake()
     {
         _animator = transform.GetComponentInChildren<Animator>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Update()
-    {
-        _animator.SetFloat("Speed", _navMeshAgent.velocity.magnitude);
     }
 
     public void Attack()
@@ -36,5 +26,10 @@ public class EnemyAnimations : MonoBehaviour
     public void Die()
     {
         _animator.SetTrigger("Die");
+    }
+
+    public void UpdateSpeed(float speed)
+    {
+        _animator.SetFloat("Speed", speed);
     }
 }

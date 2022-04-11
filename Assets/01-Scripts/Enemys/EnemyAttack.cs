@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -9,40 +6,23 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float AttackRange;
     [SerializeField] float AttackRate;
 
-    GameObject _player;
-    PlayerStatusSO _playerStatus;
     float _lastAttack;
-    EnemyAnimations _enemyAnimations;
 
     private void Start()
     {
-        _enemyAnimations = GetComponent<EnemyAnimations>();
-
         _lastAttack = Time.time + AttackRate;
     }
 
-    private void Update()
+    public bool CanAttack(Vector3 tagetPosition)
     {
-        Attack();
+        return (Vector3.Distance(tagetPosition, transform.position) <= AttackRange && Time.time >= _lastAttack);
     }
 
-    public void SetPlayer(GameObject player)
+    public void Attack(IDamaged target)
     {
-        _player = player;
-        _playerStatus = player.GetComponent<PlayerController>().PlayerStatus;
-    }
-
-    private void Attack()
-    {
-        if (Vector3.Distance(_player.transform.position, transform.position) > AttackRange || Time.time < _lastAttack) return;
-
-        _enemyAnimations.Attack();
-
         int damage = Damage.GetRandom();
-        _playerStatus.Damage(damage);
+        target.Damage(damage);
 
         _lastAttack = Time.time + AttackRate;
-
-        Debug.Log("Damage Player:" + damage);
     }
 }

@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] MinAndMax Speed;
 
     NavMeshAgent _navMeshAgent;
-    GameObject _player;
 
     private void Start()
     {
@@ -17,23 +16,19 @@ public class EnemyMovement : MonoBehaviour
         _navMeshAgent.speed = Speed.GetRandom();
     }
 
-    private void Update()
+    public bool ReachedTarget(Vector3 targetPosition)
     {
-        if (!_navMeshAgent.enabled) return;
-
-        if (Vector3.Distance(transform.position, _player.transform.position) > MinDistanceTarget)
-        {
-            _navMeshAgent.isStopped = false;
-            _navMeshAgent.destination = _player.transform.position;
-        }
-        else
-        {
-            _navMeshAgent.isStopped = true;
-        }
+        return Vector3.Distance(transform.position, targetPosition) <= MinDistanceTarget;
     }
 
-    public void SetPlayer(GameObject player)
+    public void MoveToTarget(Vector3 targetPosition)
     {
-        _player = player;
+        _navMeshAgent.isStopped = false;
+        _navMeshAgent.destination = targetPosition;
+    }
+
+    public void Stop()
+    {
+        _navMeshAgent.isStopped = true;
     }
 }
