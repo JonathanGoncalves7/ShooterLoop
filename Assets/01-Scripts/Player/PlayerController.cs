@@ -5,18 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour, IDamaged
 {
-    Health _health;
+    public Health Health;
+    public Mana Mana;
 
     private void Start()
     {
-        _health = GetComponent<Health>();
+        Health = GetComponent<Health>();
+        Mana = GetComponent<Mana>();
     }
 
     public void Damage(int damage)
     {
-        _health.CurrentHealth -= damage;
+        Health.CurrentHealth -= damage;
 
-        if (_health.CurrentHealth <= 0)
+        if (Health.CurrentHealth <= 0)
             GameManager.s_instance.UpdateGameState(GameState.Lose);
+    }
+
+    public void UseMagic(int spendMana)
+    {
+        Mana.Reduce(spendMana);
     }
 }

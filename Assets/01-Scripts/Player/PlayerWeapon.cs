@@ -10,9 +10,12 @@ public class PlayerWeapon : MonoBehaviour
 
     MagicDataSO _currentWeaponActive;
     bool _canShoot;
+    PlayerController _playerController;
 
     private void Start()
     {
+        _playerController = GetComponent<PlayerController>();
+
         SimplesMagic.Ini();
         GreatMagic.Ini();
         ExplosionMagic.Ini();
@@ -29,8 +32,9 @@ public class PlayerWeapon : MonoBehaviour
 
     private void StartShoot()
     {
-        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot()) return;
+        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot(_playerController.Mana.GetCurrentMana())) return;
 
+        _playerController.UseMagic(_currentWeaponActive.GetManaConsumption());
         _currentWeaponActive.Shoot(ShootPosition);
     }
 

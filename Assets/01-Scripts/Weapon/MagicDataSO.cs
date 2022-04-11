@@ -5,13 +5,10 @@ using UnityEngine;
 public class MagicDataSO : ScriptableObject
 {
     [SerializeField] ProjectileDataSO ProjectileData;
-    [SerializeField] float FireRate;
-    [SerializeField] int MaxProjectiles;
-    [SerializeField] float TimeToRechargeProjectile;
+    [SerializeField] float Cooldown;
+    [SerializeField] int ManaConsumption;
 
     float _lastShoot;
-    int _currentProjectilesCount;
-    float _restTimeToRechargeProjectile;
 
     private void Start()
     {
@@ -20,20 +17,12 @@ public class MagicDataSO : ScriptableObject
 
     public void Ini()
     {
-        _lastShoot = Time.time + FireRate;
-
-        _currentProjectilesCount = MaxProjectiles;
-        _restTimeToRechargeProjectile = Time.time + TimeToRechargeProjectile;
+        _lastShoot = Time.time + Cooldown;
     }
 
-    private void Update()
+    public bool CanShoot(int currentMana)
     {
-        RechargeProjectiles();
-    }
-
-    public bool CanShoot()
-    {
-        return Time.time > _lastShoot && _currentProjectilesCount > 0;
+        return Time.time > _lastShoot && ManaConsumption <= currentMana;
     }
 
     public void Shoot(Transform shootPosition)
@@ -45,17 +34,11 @@ public class MagicDataSO : ScriptableObject
         projectileBehavior.Damage = ProjectileData.Damage.GetRandom();
         projectileBehavior.RadiusDamage = ProjectileData.RadiusDamage;
 
-        _lastShoot = Time.time + FireRate;
-        _currentProjectilesCount--;
+        _lastShoot = Time.time + Cooldown;
     }
 
-    private void RechargeProjectiles()
+    public int GetManaConsumption()
     {
-        if (_currentProjectilesCount >= MaxProjectiles || Time.time < _restTimeToRechargeProjectile) return;
-
-        _currentProjectilesCount++;
-
-
-        _restTimeToRechargeProjectile = Time.time + TimeToRechargeProjectile;
+        return ManaConsumption;
     }
 }

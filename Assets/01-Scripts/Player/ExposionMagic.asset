@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: ExposionMagic
   m_EditorClassIdentifier: 
   ProjectileData: {fileID: 11400000, guid: 3bed9fb1ad4c536479c5fdff7c119b9c, type: 2}
-  FireRate: 2
-  MaxProjectiles: 5
-  TimeToRechargeProjectile: 2
+  Cooldown: 2
+  ManaConsumption: 30

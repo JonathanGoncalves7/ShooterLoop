@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: SimpleMagic
   m_EditorClassIdentifier: 
   ProjectileData: {fileID: 11400000, guid: 4863891ded021f24f993df090132e231, type: 2}
-  FireRate: 1
-  MaxProjectiles: 15
-  TimeToRechargeProjectile: 1
+  Cooldown: 0.5
+  ManaConsumption: 5

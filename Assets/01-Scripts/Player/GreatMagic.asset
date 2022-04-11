@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: GreatMagic
   m_EditorClassIdentifier: 
   ProjectileData: {fileID: 11400000, guid: 48ab553d8215fb749916dd358be4f3e5, type: 2}
-  FireRate: 1
-  MaxProjectiles: 30
-  TimeToRechargeProjectile: 2
+  Cooldown: 1
+  ManaConsumption: 15
