@@ -19,6 +19,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!_navMeshAgent.enabled) return;
+
         if (Vector3.Distance(transform.position, _player.transform.position) > MinDistanceTarget)
         {
             _navMeshAgent.isStopped = false;

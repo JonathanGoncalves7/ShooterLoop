@@ -12,9 +12,11 @@ public class EnemyAttack : MonoBehaviour
     GameObject _player;
     PlayerStatusSO _playerStatus;
     float _lastAttack;
+    EnemyAnimations _enemyAnimations;
 
     private void Start()
     {
+        _enemyAnimations = GetComponent<EnemyAnimations>();
 
         _lastAttack = Time.time + AttackRate;
     }
@@ -33,6 +35,8 @@ public class EnemyAttack : MonoBehaviour
     private void Attack()
     {
         if (Vector3.Distance(_player.transform.position, transform.position) > AttackRange || Time.time < _lastAttack) return;
+
+        _enemyAnimations.Attack();
 
         int damage = Damage.GetRandom();
         _playerStatus.Damage(damage);

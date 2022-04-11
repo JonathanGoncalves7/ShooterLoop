@@ -681,10 +681,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemys:
-  - {fileID: 6876312563197742076, guid: ef4d9d10139750a4bb6cc5d828d2b99d, type: 3}
+  - {fileID: 1869045955504166456, guid: 75606ff5ccfa0ed479d529265d2ee9d2, type: 3}
   EnemysGroup: {fileID: 186092538}
   RespawnPoints: {fileID: 1121436816}
-  CountEnemyBaseWave: 50
+  CountEnemyBaseWave: 1
   EnemysEachWave: 0
   State: 0
 --- !u!4 &974015389
