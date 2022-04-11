@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        PlayerStatus.RegenMana();
+
         if (PlayerStatus.CurrentHealth <= 0)
             GameManager.s_instance.UpdateGameState(GameState.Lose);
     }

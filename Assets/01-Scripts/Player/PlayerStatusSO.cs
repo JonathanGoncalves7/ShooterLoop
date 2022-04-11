@@ -24,11 +24,6 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
         restSecondsToRegen = Time.time + SecondsToRegen;
     }
 
-    private void Update()
-    {
-        RegenMana();
-    }
-
     public void Damage(int damage)
     {
         CurrentHealth -= damage;
@@ -37,7 +32,7 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
             CurrentHealth = 0;
     }
 
-    private void RegenMana()
+    public void RegenMana()
     {
         if (Time.time < restSecondsToRegen) return;
 

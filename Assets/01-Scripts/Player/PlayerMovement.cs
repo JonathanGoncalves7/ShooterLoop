@@ -19,8 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetDirection()
     {
-        Direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        Direction.Normalize();
+        Direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
     }
 
     private void FixedUpdate()
