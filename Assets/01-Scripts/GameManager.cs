@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour
         EnemyMovement enemyMovement = newEnemy.GetComponent<EnemyMovement>();
         enemyMovement.SetPlayer(_player);
 
+        EnemyAttack enemyAttack = newEnemy.GetComponent<EnemyAttack>();
+        enemyAttack.SetPlayer(_player);
+
         newEnemy.transform.SetParent(EnemysGroup.transform);
     }
 

@@ -32,9 +32,9 @@ public class PlayerWeapon : MonoBehaviour
 
     private void StartShoot()
     {
-        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot(_playerController.Mana.GetCurrentMana())) return;
+        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot(_playerController.PlayerStatus.CurrentMana)) return;
 
-        _playerController.UseMagic(_currentWeaponActive.GetManaConsumption());
+        _playerController.PlayerStatus.ReduceMana(_currentWeaponActive.GetManaConsumption());
         _currentWeaponActive.Shoot(ShootPosition);
     }
 

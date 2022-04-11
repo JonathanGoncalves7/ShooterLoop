@@ -154,7 +154,7 @@ MonoBehaviour:
   MinDistanceTarget: 2.5
   Speed:
     Min: 3
-    Max: 5
+    Max: 4
 --- !u!114 &88337957316524113
 MonoBehaviour:
   m_ObjectHideFlags: 0

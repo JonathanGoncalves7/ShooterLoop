@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b38eb4370dcf343aa4bdeb5c0d0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}
   Health: {fileID: 804981696}
   Mana: {fileID: 1505992378}
 --- !u!1 &653260035
@@ -683,7 +684,7 @@ MonoBehaviour:
   - {fileID: 6876312563197742076, guid: ef4d9d10139750a4bb6cc5d828d2b99d, type: 3}
   EnemysGroup: {fileID: 186092538}
   RespawnPoints: {fileID: 1121436816}
-  CountEnemyBaseWave: 1
+  CountEnemyBaseWave: 50
   EnemysEachWave: 0
   State: 0
 --- !u!4 &974015389
@@ -1781,8 +1782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a6d068b87fb7f408ca7c42e4b23a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: {fileID: 0}
-  Mana: {fileID: 0}
+  PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}
 --- !u!114 &4744442230914755080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4249,20 +4249,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8343963947329902958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8511268968664719190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b832a055601abc4db293eff8256634e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 10000
-  CurrentHealth: 0
 --- !u!1 &8511268968664719190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,13 +4261,11 @@ GameObject:
   - component: {fileID: 2535298334948712073}
   - component: {fileID: 2806545819807159159}
   - component: {fileID: 8511268968664719191}
-  - component: {fileID: 1756544808987788998}
-  - component: {fileID: 2032242774000974870}
   - component: {fileID: 3944020485105392534}
-  - component: {fileID: 4744442230914755080}
+  - component: {fileID: 1756544808987788998}
   - component: {fileID: 5822927267093695453}
-  - component: {fileID: 8343963947329902958}
-  - component: {fileID: 8511268968664719192}
+  - component: {fileID: 2032242774000974870}
+  - component: {fileID: 4744442230914755080}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4308,21 +4292,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8511268968664719192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8511268968664719190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8464c8df6fd2ba94fa448bf0490532b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxMana: 500
-  Regen: 5
-  SecondsToRegen: 1
 --- !u!4 &9031347437035357676
 Transform:
   m_ObjectHideFlags: 0

@@ -10,11 +10,12 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float AttackRate;
 
     GameObject _player;
+    PlayerStatusSO _playerStatus;
     float _lastAttack;
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+
         _lastAttack = Time.time + AttackRate;
     }
 
@@ -23,12 +24,18 @@ public class EnemyAttack : MonoBehaviour
         Attack();
     }
 
+    public void SetPlayer(GameObject player)
+    {
+        _player = player;
+        _playerStatus = player.GetComponent<PlayerController>().PlayerStatus;
+    }
+
     private void Attack()
     {
         if (Vector3.Distance(_player.transform.position, transform.position) > AttackRange || Time.time < _lastAttack) return;
 
         int damage = Damage.GetRandom();
-        _player.GetComponent<IDamaged>().Damage(damage);
+        _playerStatus.Damage(damage);
 
         _lastAttack = Time.time + AttackRate;
 

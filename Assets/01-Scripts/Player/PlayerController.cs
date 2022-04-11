@@ -1,29 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
-public class PlayerController : MonoBehaviour, IDamaged
+public class PlayerController : MonoBehaviour
 {
-    public Health Health;
-    public Mana Mana;
+    public PlayerStatusSO PlayerStatus;
 
     private void Start()
     {
-        Health = GetComponent<Health>();
-        Mana = GetComponent<Mana>();
+        PlayerStatus.Ini();
     }
 
-    public void Damage(int damage)
+    private void Update()
     {
-        Health.CurrentHealth -= damage;
-
-        if (Health.CurrentHealth <= 0)
+        if (PlayerStatus.CurrentHealth <= 0)
             GameManager.s_instance.UpdateGameState(GameState.Lose);
-    }
-
-    public void UseMagic(int spendMana)
-    {
-        Mana.Reduce(spendMana);
     }
 }
