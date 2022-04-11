@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager s_instance;
 
-    [SerializeField] List<GameObject> Enemys;
+    [SerializeField] List<EnemyWaveSO> Enemys;
     [SerializeField] GameObject EnemysGroup;
     [SerializeField] GameObject RespawnPoints;
     [SerializeField] int CountEnemyBaseWave = 5;
@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+
+        Enemys.Sort((e1, e2) => e1.PercentageRespawn.CompareTo(e2.PercentageRespawn));
 
         UpdateGameState(GameState.StartGame);
     }
@@ -102,9 +104,22 @@ public class GameManager : MonoBehaviour
     {
         int respawnPointIndex = UnityEngine.Random.Range(0, _respawnPoints.Count);
 
-        GameObject newEnemy = Instantiate(Enemys[0], _respawnPoints[respawnPointIndex].transform.position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(GetNewEnemy(), _respawnPoints[respawnPointIndex].transform.position, Quaternion.identity);
 
         newEnemy.transform.SetParent(EnemysGroup.transform);
+    }
+
+    private GameObject GetNewEnemy()
+    {
+        float value = UnityEngine.Random.value;
+
+        foreach (var enemy in Enemys)
+        {
+            if (value < enemy.PercentageRespawn && _currentWave >= enemy.StartWave && _currentWave <= enemy.EndWave)
+                return enemy.prefab;
+        }
+
+        return Enemys[Enemys.Count - 1].prefab;
     }
 
     int NumberEnemysWave()

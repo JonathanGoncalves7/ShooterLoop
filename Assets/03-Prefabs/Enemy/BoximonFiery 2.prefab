@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6703419046087258331}
   - component: {fileID: 5577741849387867438}
   m_Layer: 6
-  m_Name: BoximonFiery
+  m_Name: BoximonFiery 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
