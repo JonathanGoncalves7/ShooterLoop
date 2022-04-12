@@ -13,7 +13,7 @@ public class ProjectileBehavior : MonoBehaviour
 
     protected void BasicDamage(GameObject enemy)
     {
-        IDamaged damaged = enemy.GetComponent<IDamaged>();
+        EnemyController damaged = enemy.GetComponent<EnemyController>();
         damaged.Damage(Damage);
     }
 }

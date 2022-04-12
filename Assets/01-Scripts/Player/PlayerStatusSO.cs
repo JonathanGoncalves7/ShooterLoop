@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerStatusSO", menuName = "ShooterLoop/PlayerStatusSO", order = 0)]
-public class PlayerStatusSO : ScriptableObject, IDamaged
+public class PlayerStatusSO : ScriptableObject
 {
     [Header("Health")]
     [SerializeField] int MaxHealth;
@@ -44,9 +44,11 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
         return SecondsToRegen - powerupRegenMana.GetBonus(SecondsToRegen);
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage, Vector3 damagePosition)
     {
         CurrentHealth -= damage;
+
+        UIManager.s_instance.ShowDamagePopup(damage, damagePosition);
 
         if (CurrentHealth < 0)
             CurrentHealth = 0;

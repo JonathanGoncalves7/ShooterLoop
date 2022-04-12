@@ -27,7 +27,7 @@ public abstract class MagicDataSO : ScriptableObject
 
     private void SingleDamage(GameObject enemy, int damage)
     {
-        IDamaged damaged = enemy.GetComponent<IDamaged>();
+        EnemyController damaged = enemy.GetComponent<EnemyController>();
         damaged.Damage(damage);
     }
 

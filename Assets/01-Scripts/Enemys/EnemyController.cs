@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Health))]
-public class EnemyController : MonoBehaviour, IDamaged
+public class EnemyController : MonoBehaviour
 {
     [SerializeField] int goldOnDie;
-    
+
     public EnemyState State;
 
     Health _health;
@@ -54,6 +54,8 @@ public class EnemyController : MonoBehaviour, IDamaged
     {
         _health.CurrentHealth -= damage;
 
+        UIManager.s_instance.ShowDamagePopup(damage, transform.position);
+
         if (_health.CurrentHealth <= 0)
         {
             UpdateState(EnemyState.Die);
@@ -82,7 +84,7 @@ public class EnemyController : MonoBehaviour, IDamaged
 
                 _enemyMovement.Stop();
 
-                _enemyAttack.Attack(_playerStatusSO);
+                _enemyAttack.Attack(_playerStatusSO, _player.transform.position);
                 break;
 
             case EnemyState.Die:

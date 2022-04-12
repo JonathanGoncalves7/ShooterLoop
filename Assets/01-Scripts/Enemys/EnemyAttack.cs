@@ -18,10 +18,10 @@ public class EnemyAttack : MonoBehaviour
         return (Vector3.Distance(tagetPosition, transform.position) <= AttackRange && Time.time >= _lastAttack);
     }
 
-    public void Attack(IDamaged target)
+    public void Attack(PlayerStatusSO target, Vector3 damagePosition)
     {
         int damage = Damage.GetRandom();
-        target.Damage(damage);
+        target.Damage(damage, damagePosition);
 
         _lastAttack = Time.time + AttackRate;
     }
