@@ -7,4 +7,5 @@ public class EnemyWaveSO : ScriptableObject
     [Range(0, 1)] public float PercentageRespawn;
     public int StartWave;
     public int EndWave;
+    public int Gold = 5;
 }

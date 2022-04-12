@@ -4,6 +4,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Health))]
 public class EnemyController : MonoBehaviour, IDamaged
 {
+    [SerializeField] int goldOnDie;
+    
     public EnemyState State;
 
     Health _health;
@@ -26,7 +28,6 @@ public class EnemyController : MonoBehaviour, IDamaged
         _enemyAnimations = GetComponent<EnemyAnimations>();
         _enemyAttack = GetComponent<EnemyAttack>();
         _enemyMovement = GetComponent<EnemyMovement>();
-
 
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerStatusSO = _player.GetComponent<PlayerController>().PlayerStatus;
@@ -91,6 +92,8 @@ public class EnemyController : MonoBehaviour, IDamaged
 
                 _enemyAnimations.UpdateSpeed(0);
                 _enemyAnimations.Die();
+
+                GameManager.s_instance.GoldData.Inc(goldOnDie);
 
                 Destroy(gameObject, 3);
                 break;

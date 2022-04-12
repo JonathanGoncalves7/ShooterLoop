@@ -1,21 +1,24 @@
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] PlayerStatusSO PlayerStatus;
-
     [SerializeField] SliderBar Health;
     [SerializeField] SliderBar Mana;
 
+    [SerializeField] TMP_Text GoldText;
+
     private void Start()
     {
-        Health.SetMax(PlayerStatus.GetMaxHealth());
-        Mana.SetMax(PlayerStatus.GetMaxMana());
+        Health.SetMax(GameManager.s_instance.PlayerStatus.GetMaxHealth());
+        Mana.SetMax(GameManager.s_instance.PlayerStatus.GetMaxMana());
     }
 
     private void Update()
     {
-        Health.SetCurrent(PlayerStatus.CurrentHealth);
-        Mana.SetCurrent(PlayerStatus.CurrentMana);
+        Health.SetCurrent(GameManager.s_instance.PlayerStatus.CurrentHealth);
+        Mana.SetCurrent(GameManager.s_instance.PlayerStatus.CurrentMana);
+
+        GoldText.text = GameManager.s_instance.GoldData.GetAmount().ToString();
     }
 }

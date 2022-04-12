@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager s_instance;
 
+    [Header("Gold")]
+    public GoldDataSO GoldData;
+
+    [Header("Enemy")]
     [SerializeField] List<EnemyWaveSO> Enemys;
     [SerializeField] GameObject EnemysGroup;
     [SerializeField] GameObject RespawnPoints;
@@ -17,18 +20,20 @@ public class GameManager : MonoBehaviour
     public GameState State;
 
     GameObject _player;
+    public PlayerStatusSO PlayerStatus;
     int _currentWave = 0;
     List<GameObject> _respawnPoints = new List<GameObject>();
 
     private void Awake()
     {
         s_instance = this;
+
+        _player = GameObject.FindGameObjectWithTag("Player");
+        PlayerStatus = _player.GetComponent<PlayerController>().PlayerStatus;
     }
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-
         Enemys.Sort((e1, e2) => e1.PercentageRespawn.CompareTo(e2.PercentageRespawn));
 
         UpdateGameState(GameState.StartGame);
