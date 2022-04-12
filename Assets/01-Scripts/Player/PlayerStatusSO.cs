@@ -24,6 +24,16 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
         restSecondsToRegen = Time.time + SecondsToRegen;
     }
 
+    public int GetMaxHealth()
+    {
+        return MaxHealth;
+    }
+
+    public int GetMaxMana()
+    {
+        return MaxMana;
+    }
+
     public void Damage(int damage)
     {
         CurrentHealth -= damage;

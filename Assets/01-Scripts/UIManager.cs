@@ -1,16 +1,21 @@
 using UnityEngine;
-using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] PlayerStatusSO PlayerStatus;
 
-    [SerializeField] TMP_Text Health;
-    [SerializeField] TMP_Text Mana;
+    [SerializeField] SliderBar Health;
+    [SerializeField] SliderBar Mana;
+
+    private void Start()
+    {
+        Health.SetMax(PlayerStatus.GetMaxHealth());
+        Mana.SetMax(PlayerStatus.GetMaxMana());
+    }
 
     private void Update()
     {
-        Health.text = PlayerStatus.CurrentHealth.ToString();
-        Mana.text = PlayerStatus.CurrentMana.ToString();
+        Health.SetCurrent(PlayerStatus.CurrentHealth);
+        Mana.SetCurrent(PlayerStatus.CurrentMana);
     }
 }
