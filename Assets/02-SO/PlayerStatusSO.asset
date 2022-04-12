@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5a88085a13b0438410bb300a9d074, type: 3}
   m_Name: PlayerStatusSO
   m_EditorClassIdentifier: 
-  MaxHealth: 10000
+  MaxHealth: 100
   MaxMana: 500
   Regen: 5
   SecondsToRegen: 1

@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869045955504166456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.459}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4223202340365362248}
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0136aabd7acb104bb4703ccc42c65f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinDistanceTarget: 2.5
+  MinDistanceTarget: 2
   Speed:
-    Min: 4
-    Max: 6
+    Min: 6
+    Max: 7
 --- !u!114 &5162365815831995797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b832a055601abc4db293eff8256634e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 5
+  MaxHealth: 6
   CurrentHealth: 0
 --- !u!114 &6703419046087258331
 MonoBehaviour:
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage:
-    Min: 5
-    Max: 10
+    Min: 2
+    Max: 5
   AttackRange: 3
   AttackRate: 2
 --- !u!114 &5577741849387867438

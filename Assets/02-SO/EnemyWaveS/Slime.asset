@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824c6044fcfecd4fbc3f048f4163291, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 976159322826245487, guid: bb3412e07c47c6c48b2b6db2e60986bc, type: 3}
+  PercentageRespawn: 0.4
+  StartWave: 10
+  EndWave: 9999999
