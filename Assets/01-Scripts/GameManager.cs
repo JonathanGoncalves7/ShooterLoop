@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
         return Enemys[Enemys.Count - 1].prefab;
     }
 
+
     int NumberEnemysWave()
     {
         return CountEnemyBaseWave + (_currentWave * EnemysEachWave);

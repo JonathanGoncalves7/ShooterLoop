@@ -686,10 +686,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 75a643fecf8dc6f4ea5dd45208c8e711, type: 2}
   - {fileID: 11400000, guid: 33febf82c14b23646a54daee88feac50, type: 2}
   - {fileID: 11400000, guid: cec2170b82ec55f4ea65c1d5559e8da9, type: 2}
+  - {fileID: 11400000, guid: 7e18eaeed9cb6124f9c4ec870f3acbf0, type: 2}
+  - {fileID: 11400000, guid: 1307d93f301213649b788dc352535eb4, type: 2}
   EnemysGroup: {fileID: 186092538}
   RespawnPoints: {fileID: 1121436816}
-  CountEnemyBaseWave: 100
-  EnemysEachWave: 0
+  CountEnemyBaseWave: 30
+  EnemysEachWave: 10
   State: 0
 --- !u!4 &974015389
 Transform:
