@@ -526,9 +526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b38eb4370dcf343aa4bdeb5c0d0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}
   Health: {fileID: 1170809299}
   Mana: {fileID: 2138937338}
+  GoldText: {fileID: 1043301160}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763097e4e8f1fa946aab6463f550ec9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoldData: {fileID: 11400000, guid: d338dcf7b7346c4479a36656afd2e571, type: 2}
   Enemys:
   - {fileID: 11400000, guid: ea6d0252dd9e7e7449e2a76ccd937230, type: 2}
   - {fileID: 11400000, guid: 61cf5a02d68e52742b38386c08ad0cbc, type: 2}
@@ -709,6 +710,7 @@ MonoBehaviour:
   CountEnemyBaseWave: 30
   EnemysEachWave: 10
   State: 0
+  PlayerStatus: {fileID: 0}
 --- !u!4 &974015389
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,9 +2115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e39adb8278c62146bbe05d6e1f3f57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SimplesMagic: {fileID: 11400000, guid: 0be2ebdcea36c334dac7adcdae9af963, type: 2}
-  GreatMagic: {fileID: 11400000, guid: 2a372e90b7e5f2c43957e6077d885f6f, type: 2}
-  ExplosionMagic: {fileID: 11400000, guid: c209b8eec4f271f458250b055b8b8d89, type: 2}
+  SimplesMagic: {fileID: 11400000, guid: 0771112334ace2f4abcee4547f72e965, type: 2}
+  PiercingMagic: {fileID: 11400000, guid: 9c161d1d023258d469442d89f8245b89, type: 2}
+  ExplosionMagic: {fileID: 11400000, guid: 04edb867d0238204b85b215a4ab3ef98, type: 2}
   ShootPosition: {fileID: 1766253390}
 --- !u!54 &2535298334948712073
 Rigidbody:
@@ -2185,6 +2187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
+  PowerupSpeed: {fileID: 11400000, guid: a4539428401389e479ec6a11432eb32e, type: 2}
   Direction: {x: 0, y: 0, z: 0}
 --- !u!137 &7376829455294652673
 SkinnedMeshRenderer:

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    [SerializeField] MagicDataSO SimplesMagic;
-    [SerializeField] MagicDataSO GreatMagic;
-    [SerializeField] MagicDataSO ExplosionMagic;
+    [SerializeField] SimpleMagicDataSO SimplesMagic;
+    [SerializeField] PiercingMagicDataSO PiercingMagic;
+    [SerializeField] ExplosiveMagicDataSO ExplosionMagic;
 
     [SerializeField] Transform ShootPosition;
 
@@ -30,7 +30,6 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot(_playerController.PlayerStatus.CurrentMana)) return;
 
-        _playerController.PlayerStatus.ReduceMana(_currentWeaponActive.GetManaConsumption());
         _currentWeaponActive.Shoot(ShootPosition);
     }
 
@@ -60,7 +59,7 @@ public class PlayerWeapon : MonoBehaviour
                 _currentWeaponActive = SimplesMagic;
                 break;
             case 1:
-                _currentWeaponActive = GreatMagic;
+                _currentWeaponActive = PiercingMagic;
                 break;
             case 2:
                 _currentWeaponActive = ExplosionMagic;

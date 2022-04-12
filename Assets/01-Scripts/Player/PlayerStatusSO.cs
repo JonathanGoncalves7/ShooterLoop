@@ -11,6 +11,11 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
     [SerializeField] int Regen;
     [SerializeField] float SecondsToRegen;
 
+    [Header("Powerup")]
+    [SerializeField] PowerupDataSO powerupHealth;
+    [SerializeField] PowerupDataSO powerupMana;
+    [SerializeField] PowerupDataSO powerupRegenMana;
+
     [System.NonSerialized] public int CurrentHealth;
     [System.NonSerialized] public int CurrentMana;
 
@@ -18,20 +23,25 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
 
     private void OnEnable()
     {
-        CurrentHealth = MaxHealth;
-        CurrentMana = MaxMana;
+        CurrentHealth = GetMaxHealth();
+        CurrentMana = GetMaxMana();
 
-        restSecondsToRegen = Time.time + SecondsToRegen;
+        restSecondsToRegen = Time.time + GetSecondsToRegenMana();
     }
 
     public int GetMaxHealth()
     {
-        return MaxHealth;
+        return MaxHealth + (int)powerupHealth.GetBonus(MaxHealth);
     }
 
     public int GetMaxMana()
     {
-        return MaxMana;
+        return MaxMana + (int)powerupMana.GetBonus(MaxMana);
+    }
+
+    private float GetSecondsToRegenMana()
+    {
+        return SecondsToRegen - powerupRegenMana.GetBonus(SecondsToRegen);
     }
 
     public void Damage(int damage)
@@ -46,7 +56,7 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
     {
         if (Time.time < restSecondsToRegen) return;
 
-        restSecondsToRegen = Time.time + SecondsToRegen;
+        restSecondsToRegen = Time.time + GetSecondsToRegenMana();
 
         IncrementMana(Regen);
     }
@@ -60,8 +70,8 @@ public class PlayerStatusSO : ScriptableObject, IDamaged
     {
         CurrentMana += value;
 
-        if (CurrentMana > MaxMana)
-            CurrentMana = MaxMana;
+        if (CurrentMana > GetMaxMana())
+            CurrentMana = GetMaxMana();
     }
 
     public void ReduceMana(int value)

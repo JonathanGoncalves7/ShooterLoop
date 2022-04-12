@@ -1,14 +1,14 @@
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "WeaponShoot", menuName = "ShooterLoop/WeaponShoot", order = 0)]
-public class MagicDataSO : ScriptableObject
+public abstract class MagicDataSO : ScriptableObject
 {
-    [SerializeField] ProjectileDataSO ProjectileData;
-    [SerializeField] float Cooldown;
-    [SerializeField] int ManaConsumption;
+    [SerializeField] protected GameObject Prefab;
+    [SerializeField] protected float Speed;
+    [SerializeField] protected MinAndMax Damage;
+    [SerializeField] protected float Cooldown;
+    [SerializeField] protected int ManaConsumption;
 
-    float _lastShoot;
+    protected float _lastShoot;
 
     private void OnEnable()
     {
@@ -17,23 +17,21 @@ public class MagicDataSO : ScriptableObject
 
     public bool CanShoot(int currentMana)
     {
-        return Time.time > _lastShoot && ManaConsumption <= currentMana;
+        return Time.time > _lastShoot && GetManaConsumption() <= currentMana;
     }
 
-    public void Shoot(Transform shootPosition)
+    public GameObject InstantiateNewProjectile(Transform shootPosition, GameObject prefab)
     {
-        GameObject newProjectile = Instantiate(ProjectileData.Prefab, shootPosition.position, shootPosition.rotation);
-
-        ProjectileBehavior projectileBehavior = newProjectile.GetComponent<ProjectileBehavior>();
-        projectileBehavior.Speed = ProjectileData.Speed;
-        projectileBehavior.Damage = ProjectileData.Damage.GetRandom();
-        projectileBehavior.RadiusDamage = ProjectileData.RadiusDamage;
-
-        _lastShoot = Time.time + Cooldown;
+        return Instantiate(prefab, shootPosition.position, shootPosition.rotation);
     }
 
-    public int GetManaConsumption()
+    private void SingleDamage(GameObject enemy, int damage)
     {
-        return ManaConsumption;
+        IDamaged damaged = enemy.GetComponent<IDamaged>();
+        damaged.Damage(damage);
     }
+
+    public abstract float GetCooldown();
+    public abstract int GetManaConsumption();
+    public abstract void Shoot(Transform shootPosition);
 }

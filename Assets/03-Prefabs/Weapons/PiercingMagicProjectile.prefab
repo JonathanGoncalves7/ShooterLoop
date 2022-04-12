@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8376483509723616512}
   - component: {fileID: 8376483509723616513}
   - component: {fileID: 8376483509723616514}
-  - component: {fileID: 4833579852006879902}
+  - component: {fileID: 5694653448865789729}
   m_Layer: 0
-  m_Name: GreatMagicProjectile
+  m_Name: PiercingMagicProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4833579852006879902
+--- !u!114 &5694653448865789729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8376483509723616515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647e11da2cf1a314ab7dfbc6d442037e, type: 3}
+  m_Script: {fileID: 11500000, guid: faae5f43b48eb08429f766062b21918c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxTargetDamaged: 0

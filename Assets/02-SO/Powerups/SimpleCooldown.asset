@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2d11d333c0ac940a31887a32c69bc9, type: 3}
-  m_Name: ExplosionMagicProjectile
+  m_Script: {fileID: 11500000, guid: 214bba1cdc1c794479ce4e9de4191bcd, type: 3}
+  m_Name: SimpleCooldown
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8376483509723616515, guid: a52d5d8b77c2be34fac1848cfe479a65, type: 3}
-  Speed: 20
-  Damage:
-    Min: 10
-    Max: 15
-  LifeTime: 0
-  RadiusDamage: 3
+  type: 5
+  PercentageEachLevel: 0.1
+  MaxLevel: 5
+  ValueEachLevel: 50

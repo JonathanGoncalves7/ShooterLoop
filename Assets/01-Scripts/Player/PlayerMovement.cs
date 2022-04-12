@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float Speed = 5f;
+    [SerializeField] PowerupDataSO PowerupSpeed;
 
     public Vector3 Direction;
     Rigidbody _rigidbody;
@@ -24,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = Direction * Speed;
+        _rigidbody.velocity = Direction * GetSpeed();
+    }
+
+    private float GetSpeed()
+    {
+        return Speed + PowerupSpeed.GetBonus(Speed);
     }
 }

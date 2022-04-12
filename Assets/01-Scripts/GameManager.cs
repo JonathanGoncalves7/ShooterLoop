@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager s_instance;
+    public static GameManager s_instance;   
 
     [Header("Gold")]
     public GoldDataSO GoldData;

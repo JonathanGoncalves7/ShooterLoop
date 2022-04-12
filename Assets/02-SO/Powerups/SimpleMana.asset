@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8274f45505d9ef54582bd30fb2c63226, type: 3}
-  m_Name: ExposionMagic
+  m_Script: {fileID: 11500000, guid: 214bba1cdc1c794479ce4e9de4191bcd, type: 3}
+  m_Name: SimpleMana
   m_EditorClassIdentifier: 
-  ProjectileData: {fileID: 11400000, guid: 3bed9fb1ad4c536479c5fdff7c119b9c, type: 2}
-  Cooldown: 2
-  ManaConsumption: 30
+  type: 6
+  PercentageEachLevel: 0.1
+  MaxLevel: 5
+  ValueEachLevel: 60

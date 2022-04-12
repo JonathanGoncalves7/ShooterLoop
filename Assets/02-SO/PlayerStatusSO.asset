@@ -15,4 +15,7 @@ MonoBehaviour:
   MaxHealth: 100
   MaxMana: 500
   Regen: 5
-  SecondsToRegen: 1
+  SecondsToRegen: 2
+  powerupHealth: {fileID: 11400000, guid: 99b0507182f527a4c9e067432e78dbb6, type: 2}
+  powerupMana: {fileID: 11400000, guid: 41f9ca5889e02cc428f672166bc9a94c, type: 2}
+  powerupRegenMana: {fileID: 11400000, guid: 91692d526f2887841b6957b1cd2ce5ea, type: 2}

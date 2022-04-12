@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5826c9a2bef6748b13e570801c71c1, type: 3}
+  m_Name: SimpleMagicDataSO
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8376483509723616515, guid: 37baf0bf0356b0349965f1e76a3c6655, type: 3}
+  Speed: 20
+  Damage:
+    Min: 2
+    Max: 4
+  Cooldown: 0.5
+  ManaConsumption: 5
+  PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}
+  PowerupDamage: {fileID: 11400000, guid: 8bb1d550577d4fd4dbafe2a09c588071, type: 2}
+  PowerupCooldown: {fileID: 11400000, guid: 2b72f25a5e726cf4db014f9bf33f65ab, type: 2}
+  PowerupMana: {fileID: 11400000, guid: d8b7a075745927c49a7472660c636876, type: 2}

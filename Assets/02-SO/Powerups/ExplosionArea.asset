@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2d11d333c0ac940a31887a32c69bc9, type: 3}
-  m_Name: GreatMagicProjectile
+  m_Script: {fileID: 11500000, guid: 214bba1cdc1c794479ce4e9de4191bcd, type: 3}
+  m_Name: ExplosionArea
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8376483509723616515, guid: fa48d98b998e0d24db32f52cf002e7e4, type: 3}
-  Speed: 30
-  Damage:
-    Min: 4
-    Max: 6
-  LifeTime: 0
-  RadiusDamage: 0
+  type: 12
+  PercentageEachLevel: 0.1
+  MaxLevel: 5
+  ValueEachLevel: 200
