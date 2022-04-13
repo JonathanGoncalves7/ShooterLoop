@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] int goldOnDie;
+    [SerializeField] GameObject HitVFX;
 
     public EnemyState State;
 
@@ -54,12 +55,19 @@ public class EnemyController : MonoBehaviour
     {
         _health.CurrentHealth -= damage;
 
+        ShowHitVFX();
         UIManager.s_instance.ShowDamagePopup(damage, transform.position);
 
         if (_health.CurrentHealth <= 0)
         {
             UpdateState(EnemyState.Die);
         }
+    }
+
+    private void ShowHitVFX()
+    {
+        GameObject newVFX = Instantiate(HitVFX, transform.position, Quaternion.identity);
+        Destroy(newVFX, 1);
     }
 
     public void UpdateState(EnemyState newState)

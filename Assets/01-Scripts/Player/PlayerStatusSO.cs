@@ -16,6 +16,8 @@ public class PlayerStatusSO : ScriptableObject
     [SerializeField] PowerupDataSO powerupMana;
     [SerializeField] PowerupDataSO powerupRegenMana;
 
+    [SerializeField] GameObject HitVFX;
+
     [System.NonSerialized] public int CurrentHealth;
     [System.NonSerialized] public int CurrentMana;
 
@@ -48,10 +50,17 @@ public class PlayerStatusSO : ScriptableObject
     {
         CurrentHealth -= damage;
 
+        ShowHitVFX(damagePosition);
         UIManager.s_instance.ShowDamagePopup(damage, damagePosition);
 
         if (CurrentHealth < 0)
             CurrentHealth = 0;
+    }
+
+    private void ShowHitVFX(Vector3 positionVFX)
+    {
+        GameObject newVFX = Instantiate(HitVFX, positionVFX, Quaternion.identity);
+        Destroy(newVFX, 1);
     }
 
     public void RegenMana()

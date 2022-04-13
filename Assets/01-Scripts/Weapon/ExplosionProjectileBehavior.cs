@@ -1,19 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosionProjectileBehavior : ProjectileBehavior
 {
+    [SerializeField] GameObject ProjetileVFX;
+    [SerializeField] GameObject ExplosionVFX;
+
+    bool _causedDamage;
+
     [System.NonSerialized] public float RadiusDamage;
+
+    private void Start()
+    {
+        _causedDamage = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) return;
+        if (other.CompareTag("Player") || _causedDamage) return;
 
         if (other.CompareTag("Enemy"))
+        {
+            _causedDamage = true;
+            ProjetileVFX.SetActive(false);
+            ExplosionVFX.SetActive(true);
+            Speed = 0;
             AreaDamage();
+        }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 2);
     }
 
     private void AreaDamage()

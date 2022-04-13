@@ -989,6 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldOnDie: 5
+  HitVFX: {fileID: 7016904631292961835, guid: c0e88501ef164234bbc2ae6539dbee9f, type: 3}
   State: 0
 --- !u!114 &7625579751313572479
 MonoBehaviour:

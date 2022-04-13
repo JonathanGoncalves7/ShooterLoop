@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DamagePopup : MonoBehaviour
@@ -10,7 +9,7 @@ public class DamagePopup : MonoBehaviour
     void Start()
     {
         Canvas.worldCamera = Camera.main;
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 1.5f);
     }
 
     public void SetText(int value)
