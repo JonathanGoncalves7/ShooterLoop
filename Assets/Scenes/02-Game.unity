@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52660c8d83b1b37428344184061f72a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 4
   PowerupSpeed: {fileID: 11400000, guid: a4539428401389e479ec6a11432eb32e, type: 2}
   Direction: {x: 0, y: 0, z: 0}
 --- !u!137 &7376829455294652673

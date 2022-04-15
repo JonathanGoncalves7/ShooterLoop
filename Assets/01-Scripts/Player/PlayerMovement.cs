@@ -25,7 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = Direction * GetSpeed();
+        var currentSpeed = GetSpeed();
+
+        if (Direction.x > 0 && Direction.z > 0)
+        {
+            currentSpeed /= 2;
+        }
+
+        Debug.Log(PowerupSpeed.GetBonus(Speed));
+        Debug.Log(currentSpeed);
+
+        _rigidbody.velocity = Direction * currentSpeed;
     }
 
     private float GetSpeed()

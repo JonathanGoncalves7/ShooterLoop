@@ -10,6 +10,10 @@ public class PowerupDataSO : ScriptableObject
 
     int _currentLevel;
 
+    private void OnEnable()
+    {
+        Load();
+    }
 
     public void Load()
     {

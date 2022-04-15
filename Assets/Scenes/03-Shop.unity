@@ -1434,7 +1434,7 @@ PrefabInstance:
     - target: {fileID: 5296190171378276058, guid: 271009c4df0450740972a0da9692ec78, type: 3}
       propertyPath: PowerupData
       value: 
-      objectReference: {fileID: 11400000, guid: 15555b33ccfe9ef47bab1db35addf5f0, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b72f25a5e726cf4db014f9bf33f65ab, type: 2}
     - target: {fileID: 8914780926916516456, guid: 271009c4df0450740972a0da9692ec78, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00009918213

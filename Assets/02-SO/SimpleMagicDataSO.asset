@@ -15,8 +15,8 @@ MonoBehaviour:
   Prefab: {fileID: 8376483509723616515, guid: 37baf0bf0356b0349965f1e76a3c6655, type: 3}
   Speed: 20
   Damage:
-    Min: 2
-    Max: 4
+    Min: 6
+    Max: 8
   Cooldown: 0.5
   ManaConsumption: 5
   PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}

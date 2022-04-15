@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5a88085a13b0438410bb300a9d074, type: 3}
   m_Name: PlayerStatusSO
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  MaxMana: 500
+  MaxHealth: 75
+  MaxMana: 250
   Regen: 5
-  SecondsToRegen: 2
+  SecondsToRegen: 1
   powerupHealth: {fileID: 11400000, guid: 99b0507182f527a4c9e067432e78dbb6, type: 2}
   powerupMana: {fileID: 11400000, guid: 41f9ca5889e02cc428f672166bc9a94c, type: 2}
   powerupRegenMana: {fileID: 11400000, guid: 91692d526f2887841b6957b1cd2ce5ea, type: 2}
+  HitVFX: {fileID: 7016904631292961835, guid: c0e88501ef164234bbc2ae6539dbee9f, type: 3}
