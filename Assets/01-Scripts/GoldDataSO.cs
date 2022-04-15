@@ -7,6 +7,8 @@ public class GoldDataSO : ScriptableObject
 
     [SerializeField] int GoldAmount;
 
+    public event System.Action<int> OnGoldChanged;
+
     private void OnEnable()
     {
         Load();
@@ -20,6 +22,8 @@ public class GoldDataSO : ScriptableObject
     public void Load()
     {
         GoldAmount = PlayerPrefs.GetInt(GOLD, 0);
+
+        OnGoldChanged?.Invoke(GoldAmount);
     }
 
     public void Inc(int value)
@@ -27,6 +31,8 @@ public class GoldDataSO : ScriptableObject
         GoldAmount += value;
 
         Save();
+
+        OnGoldChanged?.Invoke(GoldAmount);
     }
 
     public void Dec(int value)

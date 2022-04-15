@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,8 +6,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] SliderBar Health;
     [SerializeField] SliderBar Mana;
-
-    [SerializeField] TMP_Text GoldText;
 
     [SerializeField] GameObject DamagePopup;
 
@@ -27,8 +24,6 @@ public class UIManager : MonoBehaviour
     {
         Health.SetCurrent(GameManager.s_instance.PlayerStatus.CurrentHealth);
         Mana.SetCurrent(GameManager.s_instance.PlayerStatus.CurrentMana);
-
-        GoldText.text = GameManager.s_instance.GoldData.GetAmount().ToString();
     }
 
     public void ShowDamagePopup(int value, Vector3 position)
