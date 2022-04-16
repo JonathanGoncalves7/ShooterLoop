@@ -5291,7 +5291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5413,7 +5413,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1307d93f301213649b788dc352535eb4, type: 2}
   EnemysGroup: {fileID: 186092538}
   RespawnPoints: {fileID: 1121436816}
-  CountEnemyBaseWave: 10
+  CountEnemyBaseWave: 20
   EnemysEachWave: 10
   State: 0
   PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}

@@ -18,14 +18,11 @@ public class ExplosionProjectileBehavior : ProjectileBehavior
     {
         if (other.CompareTag("Player") || _causedDamage) return;
 
-        if (other.CompareTag("Enemy"))
-        {
-            _causedDamage = true;
-            ProjetileVFX.SetActive(false);
-            ExplosionVFX.SetActive(true);
-            Speed = 0;
-            AreaDamage();
-        }
+        _causedDamage = true;
+        ProjetileVFX.SetActive(false);
+        ExplosionVFX.SetActive(true);
+        Speed = 0;
+        AreaDamage();
 
         Destroy(gameObject, 2);
     }

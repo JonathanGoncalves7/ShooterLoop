@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3019588070329231490, guid: af8bd8fee848a9b488975f37348e3ea9, type: 3}
   PercentageRespawn: 0.05
-  StartWave: 0
+  StartWave: 5
   EndWave: 9999999
   Gold: 20

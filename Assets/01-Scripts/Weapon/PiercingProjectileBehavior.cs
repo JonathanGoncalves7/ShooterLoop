@@ -19,6 +19,10 @@ public class PiercingProjectileBehavior : ProjectileBehavior
             BasicDamage(other.gameObject);
             _targetDamaged++;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         if (_targetDamaged >= MaxTargetDamaged)
             Destroy(gameObject);
