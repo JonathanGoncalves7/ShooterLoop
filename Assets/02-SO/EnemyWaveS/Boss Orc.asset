@@ -16,3 +16,4 @@ MonoBehaviour:
   PercentageRespawn: 0.05
   StartWave: 10
   EndWave: 99999
+  Gold: 25
