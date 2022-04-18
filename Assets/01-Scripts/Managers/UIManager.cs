@@ -4,6 +4,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager s_instance;
 
+    [SerializeField] GameObject PausePanel;
+
     [SerializeField] SliderBar Health;
     [SerializeField] SliderBar Mana;
 
@@ -32,5 +34,21 @@ public class UIManager : MonoBehaviour
 
         DamagePopup damagePopup = newPopup.GetComponent<DamagePopup>();
         damagePopup.SetText(value);
+    }
+
+    public void OnPauseClick()
+    {
+        AudioManager.s_instance.PlayButtonClick();
+
+        Time.timeScale = 0f;
+        PausePanel.SetActive(true);
+    }
+
+    public void OnResumoClick()
+    {
+        AudioManager.s_instance.PlayButtonClick();
+
+        Time.timeScale = 1f;
+        PausePanel.SetActive(false);
     }
 }

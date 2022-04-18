@@ -11,6 +11,8 @@ public class LoadScene : MonoBehaviour
 
     IEnumerator CRLoadScene(int sceneIndex)
     {
+        Time.timeScale = 1f;
+
         AudioManager.s_instance.PlayButtonClick();
 
         yield return new WaitForSeconds(AudioManager.s_instance.GetButtonClickClip().length);
@@ -27,7 +29,8 @@ public class LoadScene : MonoBehaviour
     {
         AudioManager.s_instance.PlayButtonClick();
 
-        yield return new WaitForSeconds(AudioManager.s_instance.GetButtonClickClip().length);
+        if (Time.timeScale > 0)
+            yield return new WaitForSeconds(AudioManager.s_instance.GetButtonClickClip().length);
 
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
     }
@@ -41,7 +44,8 @@ public class LoadScene : MonoBehaviour
     {
         AudioManager.s_instance.PlayButtonClick();
 
-        yield return new WaitForSeconds(AudioManager.s_instance.GetButtonClickClip().length);
+        if (Time.timeScale > 0)
+            yield return new WaitForSeconds(AudioManager.s_instance.GetButtonClickClip().length);
 
         SceneManager.UnloadSceneAsync(index);
     }
