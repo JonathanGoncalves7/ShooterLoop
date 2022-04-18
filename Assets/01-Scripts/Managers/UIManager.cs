@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     public static UIManager s_instance;
 
     [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject LosePanel;
 
     [SerializeField] TMP_Text WaveText;
 
@@ -55,5 +56,10 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 1f;
         PausePanel.SetActive(false);
+    }
+
+    public void OnShowLosePanel()
+    {
+        LosePanel.SetActive(true);
     }
 }

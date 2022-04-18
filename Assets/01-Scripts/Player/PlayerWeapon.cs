@@ -28,7 +28,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void StartShoot()
     {
-        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot(_playerController.PlayerStatus.CurrentMana)) return;
+        if (Input.GetAxis("Fire1") <= 0 || !_currentWeaponActive.CanShoot(_playerController.PlayerStatus.CurrentMana) || _playerController.PlayerStatus.CurrentHealth <= 0) return;
 
         _currentWeaponActive.Shoot(ShootPosition);
     }

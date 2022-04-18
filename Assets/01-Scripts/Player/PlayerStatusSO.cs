@@ -25,6 +25,11 @@ public class PlayerStatusSO : ScriptableObject
 
     private void OnEnable()
     {
+        IniValues();
+    }
+
+    public void IniValues()
+    {
         CurrentHealth = GetMaxHealth();
         CurrentMana = GetMaxMana();
 

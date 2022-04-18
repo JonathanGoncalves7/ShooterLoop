@@ -40,8 +40,11 @@ public class EnemyController : MonoBehaviour
     {
         if (State == EnemyState.Die) return;
 
-
-        if (!_enemyMovement.ReachedTarget(_player.transform.position))
+        if (_playerStatusSO.CurrentHealth <= 0)
+        {
+            UpdateState(EnemyState.Idle);
+        }
+        else if (!_enemyMovement.ReachedTarget(_player.transform.position))
         {
             UpdateState(EnemyState.Move);
         }

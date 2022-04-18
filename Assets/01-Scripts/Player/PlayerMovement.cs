@@ -8,11 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 Direction;
     Rigidbody _rigidbody;
     Collider _collider;
+    PlayerStatusSO _playerStatus;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
+        _playerStatus = GetComponent<PlayerController>().PlayerStatus;
     }
 
     private void Update()
@@ -27,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_playerStatus.CurrentHealth <= 0) return;
+
         Move();
     }
 

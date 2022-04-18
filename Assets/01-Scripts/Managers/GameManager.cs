@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
     {
         _currentWave = 0;
 
+        PlayerStatus.IniValues();
+
         for (var i = 0; i < RespawnPoints.transform.childCount; i++)
         {
             _respawnPoints.Add(RespawnPoints.transform.GetChild(i).gameObject);
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleLose()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        UIManager.s_instance.OnShowLosePanel();
     }
 
     IEnumerator CRRespawn()
