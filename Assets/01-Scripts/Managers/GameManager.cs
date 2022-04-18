@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager s_instance;   
+    public static GameManager s_instance;
 
     [Header("Gold")]
     public GoldDataSO GoldData;
@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
         {
             UpdateGameState(GameState.NextWave);
         }
+    }
+
+    public int GetCurrentWave()
+    {
+        return _currentWave;
     }
 
     public void UpdateGameState(GameState newState)

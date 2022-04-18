@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -5,6 +6,8 @@ public class UIManager : MonoBehaviour
     public static UIManager s_instance;
 
     [SerializeField] GameObject PausePanel;
+
+    [SerializeField] TMP_Text WaveText;
 
     [SerializeField] SliderBar Health;
     [SerializeField] SliderBar Mana;
@@ -26,6 +29,8 @@ public class UIManager : MonoBehaviour
     {
         Health.SetCurrent(GameManager.s_instance.PlayerStatus.CurrentHealth);
         Mana.SetCurrent(GameManager.s_instance.PlayerStatus.CurrentMana);
+
+        WaveText.text = $"WAVE: {GameManager.s_instance.GetCurrentWave().ToString()}";
     }
 
     public void ShowDamagePopup(int value, Vector3 position)
