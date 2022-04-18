@@ -5,8 +5,10 @@ public class PiercingProjectileBehavior : ProjectileBehavior
     public int MaxTargetDamaged;
     int _targetDamaged;
 
-    private void Start()
+    private new void Start()
     {
+        base.Start();
+
         _targetDamaged = 0;
     }
 

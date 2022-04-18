@@ -40,6 +40,8 @@ public class GoldDataSO : ScriptableObject
         GoldAmount = Mathf.Max(GoldAmount - value, 0);
 
         Save();
+
+        OnGoldChanged?.Invoke(GoldAmount);
     }
 
     public int GetAmount()

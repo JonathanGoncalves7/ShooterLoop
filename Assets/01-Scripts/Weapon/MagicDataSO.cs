@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class MagicDataSO : ScriptableObject
@@ -7,6 +8,9 @@ public abstract class MagicDataSO : ScriptableObject
     [SerializeField] protected MinAndMax Damage;
     [SerializeField] protected float Cooldown;
     [SerializeField] protected int ManaConsumption;
+
+    [Header("Audio")]
+    [SerializeField] protected List<AudioClip> SpellCasting;
 
     protected float _lastShoot;
 
@@ -39,6 +43,11 @@ public abstract class MagicDataSO : ScriptableObject
     protected float GetNewCooldown()
     {
         return Time.time + GetCooldown();
+    }
+
+    public AudioClip GetSpellCasting()
+    {
+        return SpellCasting[Random.Range(0, SpellCasting.Count)];
     }
 
     public abstract float GetCooldown();

@@ -19,8 +19,12 @@ MonoBehaviour:
     Max: 10
   Cooldown: 2
   ManaConsumption: 30
+  SpellCasting:
+  - {fileID: 8300000, guid: 674258a055e994b72bbb15a28eb79838, type: 3}
+  - {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
   RadiusDamage: 3
   PlayerStatus: {fileID: 11400000, guid: d4b2a51dff106194191003f88d08aa73, type: 2}
   PowerupDamage: {fileID: 11400000, guid: efefe6615e3d4c647b9b26acf332fcc0, type: 2}
   PowerupCooldown: {fileID: 11400000, guid: f0331355f79f23c4fa008c4483a230ca, type: 2}
   PowerupArea: {fileID: 11400000, guid: 961b44cd39ebf6e42b80a131593bed06, type: 2}
+  ExplosionClip: {fileID: 8300000, guid: 8a44b12d3e3f24b1a89dc7f0b66756f4, type: 3}

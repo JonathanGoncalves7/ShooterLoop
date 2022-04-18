@@ -8,9 +8,12 @@ public class ExplosionProjectileBehavior : ProjectileBehavior
     bool _causedDamage;
 
     [System.NonSerialized] public float RadiusDamage;
+    [System.NonSerialized] public AudioClip ExplosionClip;
 
-    private void Start()
+    private new void Start()
     {
+        base.Start();
+
         _causedDamage = false;
     }
 
@@ -23,6 +26,7 @@ public class ExplosionProjectileBehavior : ProjectileBehavior
         ExplosionVFX.SetActive(true);
         Speed = 0;
         AreaDamage();
+        AudioManager.s_instance.PlaySpellCasting(ExplosionClip);
 
         Destroy(gameObject, 2);
     }

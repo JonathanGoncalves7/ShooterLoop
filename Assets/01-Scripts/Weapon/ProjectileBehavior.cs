@@ -4,12 +4,13 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [System.NonSerialized] public float Speed;
     [System.NonSerialized] public int Damage;
+    [System.NonSerialized] public AudioClip SpellCastingClip;
 
-    Collider _collider;
+    AudioSource SpellCasting;
 
-    private void Start()
+    protected void Start()
     {
-        _collider = GetComponent<Collider>();
+        AudioManager.s_instance.PlaySpellCasting(SpellCastingClip);
     }
 
     private void FixedUpdate()
