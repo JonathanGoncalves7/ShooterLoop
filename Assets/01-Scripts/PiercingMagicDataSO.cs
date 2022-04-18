@@ -36,6 +36,6 @@ public class PiercingMagicDataSO : MagicDataSO
         piercingProjectile.Damage = randomDamage + (int)PowerupDamage.GetBonus(randomDamage);
         piercingProjectile.MaxTargetDamaged = MaxTargetDamaged + (int)PowerupDistance.GetBonus(MaxTargetDamaged);
 
-        _lastShoot = Time.time + GetCooldown();
+        _lastShoot = GetNewCooldown();
     }
 }

@@ -32,6 +32,6 @@ public class SimpleMagicDataSO : MagicDataSO
         simpleProjectile.Speed = Speed;
         simpleProjectile.Damage = randomDamage + (int)PowerupDamage.GetBonus(randomDamage);
 
-        _lastShoot = Time.time + GetCooldown();
+        _lastShoot = GetNewCooldown();
     }
 }

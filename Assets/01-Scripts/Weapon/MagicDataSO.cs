@@ -12,7 +12,7 @@ public abstract class MagicDataSO : ScriptableObject
 
     private void OnEnable()
     {
-        _lastShoot = Time.time + Cooldown;
+        _lastShoot = GetNewCooldown();
     }
 
     public bool CanShoot(int currentMana)
@@ -29,6 +29,16 @@ public abstract class MagicDataSO : ScriptableObject
     {
         EnemyController damaged = enemy.GetComponent<EnemyController>();
         damaged.Damage(damage);
+    }
+
+    public float GetRestCooldown()
+    {
+        return (_lastShoot - Time.time) / GetCooldown();
+    }
+
+    protected float GetNewCooldown()
+    {
+        return Time.time + GetCooldown();
     }
 
     public abstract float GetCooldown();

@@ -35,6 +35,6 @@ public class ExplosiveMagicDataSO : MagicDataSO
         explosionProjectile.Damage = randomDamage + (int)PowerupDamage.GetBonus(randomDamage);
         explosionProjectile.RadiusDamage = RadiusDamage + (RadiusDamage - PowerupArea.GetBonus(RadiusDamage));
 
-        _lastShoot = Time.time + GetCooldown();
+        _lastShoot = GetNewCooldown();
     }
 }
