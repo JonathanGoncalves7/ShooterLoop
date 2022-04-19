@@ -1656,9 +1656,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1710,8 +1710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinDistanceTarget: 2
   Speed:
-    Min: 5
-    Max: 7
+    Min: 9
+    Max: 11
 --- !u!114 &3486934352557499800
 MonoBehaviour:
   m_ObjectHideFlags: 0
