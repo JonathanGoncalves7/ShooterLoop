@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   type: 0
-  PercentageEachLevel: 0.25
+  PercentageEachLevel: 0.2
   MaxLevel: 5
   ValueEachLevel: 50

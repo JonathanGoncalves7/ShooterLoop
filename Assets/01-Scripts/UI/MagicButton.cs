@@ -5,6 +5,7 @@ public class MagicButton : MonoBehaviour
 {
     [SerializeField] MagicDataSO MagicData;
     [SerializeField] Image CooldownImage;
+    [SerializeField] Image NoHaveManaImage;
 
     private void Update()
     {
@@ -17,5 +18,7 @@ public class MagicButton : MonoBehaviour
         {
             CooldownImage.enabled = false;
         }
+
+        NoHaveManaImage.enabled = GameManager.s_instance.PlayerStatus.CurrentMana < MagicData.GetManaConsumption();
     }
 }

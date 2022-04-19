@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Speed
   m_EditorClassIdentifier: 
   type: 3
-  PercentageEachLevel: 0.1
+  PercentageEachLevel: 0.05
   MaxLevel: 5
   ValueEachLevel: 75
