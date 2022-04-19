@@ -38,9 +38,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (State == EnemyState.Die) return;
-
-        if (_playerStatusSO.CurrentHealth <= 0)
+        if (State == EnemyState.Die)
+        {
+            return;
+        }
+        else if (GameManager.s_instance.State != GameState.PlayingWave)
         {
             UpdateState(EnemyState.Idle);
         }

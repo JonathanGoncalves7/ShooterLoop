@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        PlayerStatus.RegenMana();
+        if (GameManager.s_instance.State == GameState.PlayingWave)
+            PlayerStatus.RegenMana();
 
         if (PlayerStatus.CurrentHealth <= 0)
             GameManager.s_instance.UpdateGameState(GameState.Lose);

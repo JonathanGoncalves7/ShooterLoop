@@ -29,14 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_playerStatus.CurrentHealth <= 0) return;
-
         Move();
     }
 
     private void Move()
     {
-        if (NextPositionValid())
+        if (NextPositionValid() && GameManager.s_instance.State == GameState.PlayingWave)
             _rigidbody.velocity = Direction.normalized * GetSpeed();
         else
             _rigidbody.velocity = Vector3.zero;

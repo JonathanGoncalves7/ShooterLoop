@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     [Header("Gold")]
     public GoldDataSO GoldData;
 
+    [Header("Wave")]
+    [SerializeField] float NextWaveTime = 3f;
+    float _restNextWaveTime;
+
     [Header("Enemy")]
     [SerializeField] List<EnemyWaveSO> Enemys;
     [SerializeField] GameObject EnemysGroup;
@@ -64,6 +68,8 @@ public class GameManager : MonoBehaviour
             case GameState.PrepareWave:
                 HandlePrepareWave();
                 break;
+            case GameState.PlayingWave:
+                break;
             case GameState.NextWave:
                 HandleNextWave();
                 break;
@@ -92,6 +98,17 @@ public class GameManager : MonoBehaviour
 
     private void HandleNextWave()
     {
+        StartCoroutine(this.CRHandleNextWave());
+    }
+
+    IEnumerator CRHandleNextWave()
+    {
+        UIManager.s_instance.OnShowNextWavePanel();
+
+        yield return new WaitForSeconds(NextWaveTime);
+
+        UIManager.s_instance.OnHideNextWavePanel();
+
         _currentWave++;
 
         UpdateGameState(GameState.PrepareWave);
@@ -110,6 +127,8 @@ public class GameManager : MonoBehaviour
         }
 
         yield return null;
+
+        UpdateGameState(GameState.PlayingWave);
     }
 
     private void Respawn()
