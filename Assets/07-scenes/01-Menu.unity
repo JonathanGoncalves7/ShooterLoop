@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAGIC LOOP
+  m_text: SHOOTER LOOP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c47019b42f4014f438d98a5b0293355e, type: 2}
   m_sharedMaterial: {fileID: 3733992520631502893, guid: c47019b42f4014f438d98a5b0293355e, type: 2}
